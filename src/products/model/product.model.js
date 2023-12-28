@@ -9,6 +9,10 @@ export default class ProductModel{
         this.imageUrl = imageUrl;
     }
 
+    static getById(id) {
+        return products.find((p) => p.id == id);
+      }
+
     static getProducts(){
         return products;
     }
@@ -16,8 +20,20 @@ export default class ProductModel{
     static addProduct(newObject){
         const newProduct = new ProductModel(id+1, newObject.name, newObject.desc, newObject.price, newObject.imageUrl);
         products.push(newProduct);
-        
     }
+    
+    static update(productObj) {
+        // var prevData = products.findIndex((p) => p.id == productObj.id);
+        // console.log(prevData);
+
+        const index = products.findIndex(
+          (p) => p.id == productObj.id
+        );
+        console.log("indexxx:: "),index;
+        products[index] = productObj;
+      }
+
+    
 }
 
 var products = [

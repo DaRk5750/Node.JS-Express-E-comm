@@ -21,4 +21,23 @@ export default class productController{
         res.render('product',{products, userEmail: req.session.userEmail});
     }
 
+    getUpdateView(req, res, next){
+        const id = req.params.id;
+        const productFound = ProductModel.getById(id);
+        if (productFound){
+            res.render('update-product', {product:productFound, userEmail: req.session.userEmail,errorMessage:null});
+        }
+        else{
+            res.render('update-product', {product:null, userEmail: req.session.userEmail, errorMessage:"Product Not Found"});
+        }
+    }
+
+    postUpdateProduct(req, res, next){
+        const data = req.body;
+        ProductModel.update(data)
+
+        let products = ProductModel.getProducts();
+        res.render('product', { products, userEmail: req.session.userEmail});
+    }
+
 }

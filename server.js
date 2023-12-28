@@ -16,7 +16,6 @@ const server = express();
 server.use(session({ secret:'SecretKey', resave: false, saveUninitialized: true, cookie:{secure:false} }))
 
 //make page visible to everyone public views
-// server.use(express.static('public'));
 server.use(express.static("public"));
 
 //FORM DATA POST

@@ -14,6 +14,9 @@ productRoute.get('/add-product', productcontroller.addProduct)
 // productRoute.post('/add-product', newProductValidation , productcontroller.addNewProduct)
 productRoute.post('/add-product',uploadFile.single('imageUrl') , expressValidation , productcontroller.addNewProduct)
 
+productRoute.get('/update-product/:id', productcontroller.getUpdateView)
+productRoute.post('/update-product/', productcontroller.postUpdateProduct)
+
 export default productRoute;
 
 
