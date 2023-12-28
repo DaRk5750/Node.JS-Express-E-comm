@@ -1,2 +1,3 @@
 const token = req.headers.authorization;
 const token = jwt.sign(user, secretKey, { expiresIn: '1h' });
+https://i.gadgets360cdn.com/products/large/Pixel-7-630x800-1665067238.jpg?downsize=*:360

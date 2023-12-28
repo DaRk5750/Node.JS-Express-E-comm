@@ -12,8 +12,12 @@ export default class productController{
     }
     
     addNewProduct(req, res, next){
+                            //Path is important and to declare public path also
+        req.body.imageUrl = '/images/' + req.file.filename;
+        console.log("addNewProduct : ",req.body);
         ProductModel.addProduct(req.body);
         const products = ProductModel.getProducts();
+        console.log("profucts : ", products);
         res.render('product',{products, userEmail: req.session.userEmail});
     }
 

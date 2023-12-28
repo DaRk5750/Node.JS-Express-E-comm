@@ -9,13 +9,18 @@ import userRoute from './src/users/controller/user.route.js'
 import productRoute from './src/products/controller/product.route.js';
 import jwtAuth from './src/middlewares/session.middleware.js';
 
+
 const server = express();
 
 //SESSION
 server.use(session({ secret:'SecretKey', resave: false, saveUninitialized: true, cookie:{secure:false} }))
 
+//make page visible to everyone public views
+// server.use(express.static('public'));
+server.use(express.static("public"));
+
 //FORM DATA POST
-server.use(express.urlencoded({extended: true}));
+server.use(express.urlencoded({extended: true}));   // parse form data
 // server.use(express.json())
 // server.use(cookieParser());
 // server.use(bodyParser.json());
@@ -26,9 +31,6 @@ server.set("view engine", "ejs");                                               
 server.use(ejsLayouts);                                                         // base template
 // You can also set multiple views paths for different routes if needed
 server.set('views', [path.join(path.resolve(), 'src', 'users', 'views'), path.join(path.resolve(), 'src', 'products', 'views')]);
-
-//for public file only
-// server.use(express.static('src/users/views'))
 
 
 server.get('/',(req, res ,next) =>{

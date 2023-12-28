@@ -8,6 +8,8 @@ User
 Product
     -> show product
     -> add product (link + choose to upload photo)
+    1.link
+    2. Upload photo (enctype="multipart/form-data" in form )
         -> validation 
             -> without express 
             -> with express

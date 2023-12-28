@@ -5,7 +5,15 @@ const expressValidation = async (req, res,next)=>{
     //1. setup for rules
     const rules = [body('name').notEmpty().withMessage("Name is requires"), 
                     body('price').isFloat({gt:0}).withMessage("Price should be a +ve value"),
-                    body('imageUrl').isURL().withMessage("Invalid URL"),
+                    // body('imageUrl').isURL().withMessage("Invalid URL"),
+                    
+                    //custom validator
+                    body('imageUrl').custom((value, {req})=> {
+                        if (!req.file){
+                            throw new Error('Image is required');
+                        }
+                        return true;
+                    })
                     ];
 
     //2. Run those rules
