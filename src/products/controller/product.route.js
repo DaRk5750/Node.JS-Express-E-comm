@@ -16,6 +16,7 @@ productRoute.post('/add-product',uploadFile.single('imageUrl') , expressValidati
 
 productRoute.get('/update-product/:id', productcontroller.getUpdateView)
 productRoute.post('/update-product/', productcontroller.postUpdateProduct)
+productRoute.post('/delete-product/:id', productcontroller.deleteProduct)
 
 export default productRoute;
 

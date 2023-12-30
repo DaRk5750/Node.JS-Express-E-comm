@@ -2,9 +2,12 @@
   "name": "e-comm-website",
   "version": "1.0.0",
   "description": "In this all concept it going to use",
-  "main": "server.js",
+  "main": "index.js",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@vivek_dark"
+  },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vivek Yadav",

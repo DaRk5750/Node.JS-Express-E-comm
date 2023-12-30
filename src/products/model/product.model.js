@@ -18,7 +18,8 @@ export default class ProductModel{
     }
 
     static addProduct(newObject){
-        const newProduct = new ProductModel(id+1, newObject.name, newObject.desc, newObject.price, newObject.imageUrl);
+        id += 1
+        const newProduct = new ProductModel(id, newObject.name, newObject.desc, newObject.price, newObject.imageUrl);
         products.push(newProduct);
     }
     
@@ -33,6 +34,11 @@ export default class ProductModel{
         products[index] = productObj;
       }
 
+    static delete(id){
+        const index = products.findIndex( (p)=> p.id == id);
+        products.splice(index,1);
+        id -= 1;
+    } 
     
 }
 

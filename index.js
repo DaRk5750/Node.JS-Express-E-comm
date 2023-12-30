@@ -12,6 +12,14 @@ import jwtAuth from './src/middlewares/session.middleware.js';
 
 const server = express();
 
+//CORS policy configuration
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // * => allow all origins
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, PATCH, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 //SESSION
 server.use(session({ secret:'SecretKey', resave: false, saveUninitialized: true, cookie:{secure:false} }))
 

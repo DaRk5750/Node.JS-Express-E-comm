@@ -40,4 +40,18 @@ export default class productController{
         res.render('product', { products, userEmail: req.session.userEmail});
     }
 
+    deleteProduct(req, res, next){
+        const id = req.params.id;
+        const productFound = ProductModel.getById(id);  
+        if (productFound){
+            ProductModel.delete(id);
+            let product = ProductModel.get();
+            console.log("product : ",product);
+            res.render('product', { products:product ,userEmail: req.session.userEmail});
+        }
+        else{
+            res.status(401).send("Product not found");
+        }
+    }
+
 }
