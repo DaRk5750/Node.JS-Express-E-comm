@@ -3,9 +3,9 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/DaRk5750/docu_ment.git
+git remote add origin https://github.com/Rk5750/Node.JS-Express-E-comm.gitDa
 git push -u origin main
 
-git remote add origin https://github.com/DaRk5750/docu_ment.git
+git remote add origin https://github.com/DaRk5750/Node.JS-Express-E-comm.git
 git branch -M main
 git push -u origin main
